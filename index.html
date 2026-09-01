@@ -7,23 +7,29 @@
     <!-- アイコン: FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* 基本設定 */
+        /* カラー・変数設定 */
         :root {
-            --bg-color: #000000;
-            --card-bg: #111111;
-            --text-color: #ffffff;
-            --accent-color: #ff0033; /* 赤系のアクセント */
-            --gray-text: #aaaaaa;
+            --bg-color: #FFFFFF;        /* 背景：白 */
+            --sub-color: #40A2C7;       /* サブ：水色 */
+            --accent-color: #CD498F;    /* アクセント：ピンク */
+            --main-text: #333333;       /* メイン文字色：濃いグレー */
+            --sub-text: #666666;        /* サブ文字色 */
+            --border-color: #EEEEEE;    /* 境界線 */
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--main-text);
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.8;
             overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            transition: 0.3s;
         }
 
         /* ヘッダー */
@@ -35,16 +41,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid #222;
+            border-bottom: 2px solid var(--sub-color);
         }
 
         header h1 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             letter-spacing: 0.4em;
             font-weight: bold;
+            color: var(--sub-color);
             margin: 0;
         }
 
@@ -52,29 +59,20 @@
         .keyvisual {
             position: relative;
             width: 100%;
-            height: 80vh; /* 画面の80%の高さ */
-            background-color: #111; /* 画像がない時の予備色 */
+            height: 70vh;
+            background-color: #f9f9f9;
             background-image: url("image/20251210_215907.jpg");
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* パララックス */
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .keyvisual::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 150px;
-            background: linear-gradient(to top, var(--bg-color), transparent);
-        }
-
-        /* 各セクション */
+        /* セクション共通 */
         section {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 80px 20px;
         }
@@ -82,84 +80,85 @@
         h2.section-title {
             font-size: 1.8rem;
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             letter-spacing: 0.2em;
+            color: var(--main-text);
             position: relative;
         }
 
         h2.section-title::after {
             content: "";
             display: block;
-            width: 30px;
-            height: 2px;
-            background: var(--accent-color);
+            width: 50px;
+            height: 3px;
+            background: var(--sub-color);
             margin: 10px auto 0;
         }
 
-        /* プロフィール & SNS */
+        /* ABOUT */
         .about-content {
             text-align: center;
             margin-bottom: 40px;
         }
 
         .sayla-name {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: bold;
+            color: var(--main-text);
             margin-bottom: 5px;
         }
 
         .sayla-id {
-            color: var(--gray-text);
+            color: var(--sub-color);
+            font-weight: bold;
             margin-bottom: 20px;
         }
 
+        /* SNSリンク（ボタン） */
         .sns-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 15px;
         }
 
         .sns-link {
-            background: var(--card-bg);
-            border: 1px solid #333;
-            padding: 15px;
+            background: #fff;
+            border: 2px solid var(--sub-color);
+            color: var(--sub-color);
+            width: 220px;
+            padding: 12px;
             text-align: center;
-            text-decoration: none;
-            color: white;
             font-weight: bold;
-            transition: 0.3s;
-            border-radius: 4px;
+            border-radius: 30px;
         }
 
         .sns-link:hover {
-            background: #222;
-            border-color: var(--accent-color);
+            background: var(--sub-color);
+            color: #fff;
         }
 
-        /* 動画実績（WORKS） */
+        /* WORKS (YouTube) */
         .works-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
         }
 
         .work-item {
-            background: var(--card-bg);
-            border-radius: 8px;
+            background: #fff;
+            border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #222;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
         }
 
+        /* YouTubeを16:9の横長に固定する設定 */
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 */
             height: 0;
-        }
-
-        .video-wrapper.shorts {
-            padding-bottom: 177.77%; /* 9:16 (Shorts用) */
-            max-width: 350px;
-            margin: 0 auto;
+            background: #000;
         }
 
         .video-wrapper iframe {
@@ -176,38 +175,50 @@
         }
 
         .work-info h3 {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--main-text);
+            height: 2.8em;
+            display: flex;
+            align-items: center;
         }
 
+        /* タグ */
         .tags {
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .tag {
-            font-size: 0.8rem;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
-            padding: 2px 8px;
-            border-radius: 2px;
+            font-size: 0.75rem;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
         }
 
         /* フッター */
         footer {
             padding: 60px 0;
             text-align: center;
-            border-top: 1px solid #222;
-            color: #555;
+            background-color: #f9f9f9;
+            color: var(--sub-text);
             font-size: 0.8rem;
         }
 
         /* スマホ対応 */
         @media (max-width: 600px) {
             .keyvisual {
-                background-attachment: scroll; /* スマホではパララックス解除 */
-                height: 60vh;
+                background-attachment: scroll;
+                height: 50vh;
+            }
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+            .sns-link {
+                width: 100%;
             }
         }
     </style>
@@ -218,6 +229,7 @@
         <h1>Sayla</h1>
     </header>
 
+    <!-- メイン画像表示エリア -->
     <div class="keyvisual"></div>
 
     <section id="about">
@@ -225,7 +237,7 @@
         <div class="about-content">
             <div class="sayla-name">Sayla</div>
             <p class="sayla-id">@sayla_ch</p>
-            <p>ツイキャス・nanaを中心に活動中。<br>歌ってみたのMIX制作、動画制作なども行っています。</p>
+            <p>ツイキャス・nanaを中心に活動中。<br>歌唱のほか、MIX制作・動画制作などのクリエイティブも行っています。</p>
         </div>
 
         <div class="sns-container">
@@ -242,33 +254,35 @@
     </section>
 
     <section id="works">
-        <h2 class="section-title">WORKS / MIX</h2>
+        <h2 class="section-title">WORKS</h2>
         <div class="works-grid">
             
-            <!-- アイデンティティ -->
+            <!-- 実績1：アイデンティティ -->
             <div class="work-item">
                 <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/xlNm8FPTJRo" allowfullscreen></iframe>
+                    <!-- YouTubeの埋め込みURL -->
+                    <iframe src="https://www.youtube.com/embed/xlNm8FPTJRo" title="YouTube video player" allowfullscreen></iframe>
                 </div>
                 <div class="work-info">
                     <h3>アイデンティティ / 恋町レノ × Sayla</h3>
                     <div class="tags">
                         <span class="tag">Vocal</span>
-                        <span class="tag">Mix</span>
+                        <span class="tag">MIX</span>
                         <span class="tag">Movie</span>
                     </div>
                 </div>
             </div>
 
-            <!-- プロポーズ -->
+            <!-- 実績2：プロポーズ (Shortsも横長枠で表示) -->
             <div class="work-item">
-                <div class="video-wrapper shorts">
-                    <iframe src="https://www.youtube.com/embed/CeFgU-8giUU" allowfullscreen></iframe>
+                <div class="video-wrapper">
+                    <!-- Shortsもembed形式にすれば横長プレイヤーの中で再生されます -->
+                    <iframe src="https://www.youtube.com/embed/CeFgU-8giUU" title="YouTube video player" allowfullscreen></iframe>
                 </div>
-                <div class="work-info" style="text-align: center;">
+                <div class="work-info">
                     <h3>プロポーズ💍歌ってみた【恋町レノ】</h3>
-                    <div class="tags" style="justify-content: center;">
-                        <span class="tag">Mix協力</span>
+                    <div class="tags">
+                        <span class="tag">MIX</span>
                     </div>
                 </div>
             </div>
