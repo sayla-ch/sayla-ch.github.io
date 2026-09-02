@@ -25,7 +25,7 @@
             --accent-color: #CD498F;    /* ピンク */
             --main-text: #333333;
             --border-color: #EEEEEE;
-            --footer-bg: #fcfcfc;       /* フッター背景グレー */
+            --footer-bg: #fcfcfc;
         }
 
         * {
@@ -55,16 +55,47 @@
             width: 100%;
         }
 
+        /* 左半分：スライドショーエリア */
         .left-side {
             width: 50%;
             height: 100vh;
             position: fixed;
             left: 0;
             top: 0;
-            background-image: url("image/20251210_215907.jpg");
+            overflow: hidden;
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* スライドショー本体 */
+        .slideshow {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
             background-size: cover;
             background-position: center;
-            border-right: 1px solid var(--border-color);
+            opacity: 0;
+            animation: sliderAnim 15s infinite; /* 15秒かけて1ループ */
+        }
+
+        /* 画像3枚の設定 */
+        .slide:nth-child(1) { background-image: url("image/20251210_215907.jpg"); animation-delay: 0s; }
+        .slide:nth-child(2) { background-image: url("image/20251025_185455.jpg"); animation-delay: 5s; }
+        .slide:nth-child(3) { background-image: url("image/20251116_153310.jpg"); animation-delay: 10s; }
+
+        @keyframes sliderAnim {
+            0% { opacity: 0; transform: scale(1); }
+            10% { opacity: 1; }
+            33% { opacity: 1; }
+            43% { opacity: 0; transform: scale(1.05); }
+            100% { opacity: 0; }
         }
 
         .right-side {
@@ -74,19 +105,24 @@
             flex-direction: column;
         }
 
-        /* プロフィールセクション */
+        /* プロフィールセクション：PCでの高さを確保してLOGを隠す */
         .profile-section {
-            padding: 80px 20px 60px;
+            padding: 120px 20px 100px; /* 上下の余白を増やしました */
             background-color: var(--bg-color);
+            min-height: 100vh; /* 最低でも画面1枚分の高さを確保 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .huge-name {
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: bold;
             color: var(--sub-color);
             letter-spacing: 0.05em;
             line-height: 1;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .sayla-id {
@@ -94,16 +130,16 @@
             font-size: 1.1rem;
             display: block;
             font-weight: bold;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .profile-icon {
-            width: 150px;
-            height: 150px;
+            width: 180px; /* さらにサイズアップ */
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--sub-color);
-            margin-bottom: 30px;
+            border: 5px solid var(--sub-color);
+            margin-bottom: 40px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
@@ -112,19 +148,19 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .sns-link {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             background: #fff;
             border: 1px solid var(--sub-color);
             color: var(--sub-color);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             border-radius: 50%;
         }
 
@@ -135,29 +171,29 @@
         }
 
         .profile-text {
-            font-size: 0.95rem;
+            font-size: 1rem;
             text-align: center;
             padding: 0 10%;
         }
 
-        /* LOGセクション (背景青) */
+        /* LOGセクション */
         .log-section {
             background-color: var(--sub-color);
-            padding: 60px 20px 80px;
+            padding: 80px 20px 100px;
             color: #FFFFFF;
         }
 
         .log-title {
-            font-size: 2rem;
+            font-size: 2.2rem;
             letter-spacing: 0.4em;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             font-weight: bold;
         }
 
         .works-grid {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 40px;
             align-items: center;
             max-width: 500px;
             margin: 0 auto;
@@ -188,33 +224,13 @@
             border: none;
         }
 
-        .work-info {
-            padding: 20px;
-        }
+        .work-info { padding: 20px; }
+        .work-info h3 { font-size: 1rem; margin-bottom: 12px; }
+        .tags { display: flex; gap: 5px; justify-content: center; }
+        .tag { font-size: 0.7rem; background-color: var(--accent-color); color: #fff; padding: 2px 12px; border-radius: 10px; font-weight: bold; }
 
-        .work-info h3 {
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-        }
-
-        .tags {
-            display: flex;
-            gap: 5px;
-            justify-content: center;
-        }
-
-        .tag {
-            font-size: 0.7rem;
-            background-color: var(--accent-color);
-            color: #fff;
-            padding: 2px 12px;
-            border-radius: 10px;
-            font-weight: bold;
-        }
-
-        /* フッター: 青背景から独立させてグレーに */
         footer {
-            padding: 40px 0;
+            padding: 50px 0;
             background-color: var(--footer-bg);
             color: #999;
             font-size: 0.75rem;
@@ -222,12 +238,12 @@
             border-top: 1px solid var(--border-color);
         }
 
-        /* --- スマホ調整 (1024px以下) --- */
+        /* --- スマホ調整 --- */
         @media (max-width: 1024px) {
             .container { display: block; }
             .left-side {
                 width: 100%;
-                height: 50vh;
+                height: 75vh; /* スマホでも大きく表示 */
                 position: relative;
                 border-right: none;
             }
@@ -235,28 +251,35 @@
                 width: 100%;
                 margin-left: 0;
             }
+            .profile-section { min-height: auto; padding: 60px 20px; }
             .huge-name { font-size: 3.5rem; }
-            .profile-text { padding: 0 5%; }
-            .log-section { padding: 50px 15px 60px; }
+            .profile-icon { width: 150px; height: 150px; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- 左側：固定背景画像 -->
-        <div class="left-side"></div>
+        <!-- 左側：スライドショー -->
+        <div class="left-side">
+            <div class="slideshow">
+                <div class="slide"></div>
+                <div class="slide"></div>
+                <div class="slide"></div>
+            </div>
+        </div>
 
         <!-- 右側：コンテンツ -->
         <div class="right-side">
             
-            <!-- プロフィール -->
             <div class="profile-section">
                 <h1 class="huge-name">Sayla</h1>
                 <span class="sayla-id">@sayla_ch</span>
 
-                <img src="image/20251025_185455.jpg" alt="Sayla Icon" class="profile-icon">
+                <!-- 新アイコン画像 -->
+                <img src="image/20251229_215256.jpg" alt="Sayla Icon" class="profile-icon">
 
+                <!-- SNSリンク -->
                 <div class="sns-container">
                     <a href="https://x.com/sayla_ch" target="_blank" class="sns-link" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
                     <a href="https://nana-music.com/users/10371954" target="_blank" class="sns-link" title="nana"><i class="fa-solid fa-microphone-lines"></i></a>
@@ -270,14 +293,12 @@
                     <p>一人称迷子で言動荒めな奴と覚えてください</p>
                     <p>歌とゲームが好き</p>
                     <p>夢はでっかく配信者屋さんになること</p>
-                    <p style="margin-top: 1em; font-weight: bold; color: var(--accent-color);">推しは推せる時に推そうな？</p>
+                    <p style="margin-top: 1.2em; font-weight: bold; color: var(--accent-color);">推しは推せる時に推そうな？</p>
                 </div>
             </div>
 
-            <!-- LOGセクション (背景青) -->
             <div class="log-section" id="works">
                 <h2 class="log-title">LOG</h2>
-
                 <div class="works-grid">
                     <div class="work-item">
                         <div class="video-wrapper">
@@ -292,27 +313,23 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="work-item">
                         <div class="video-wrapper">
                             <iframe src="https://www.youtube.com/embed/CeFgU-8giUU" title="YouTube video player" allowfullscreen></iframe>
                         </div>
                         <div class="work-info">
                             <h3>プロポーズ💍歌ってみた【恋町レノ】</h3>
-                            <div class="tags">
-                                <span class="tag">MIX</span>
-                            </div>
+                            <div class="tags"><span class="tag">MIX</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- フッター -->
             <footer>
                 &copy; Sayla. All Rights Reserved.
             </footer>
-        </div> <!-- /right-side -->
-    </div> <!-- /container -->
+        </div>
+    </div>
 
 </body>
 </html>
