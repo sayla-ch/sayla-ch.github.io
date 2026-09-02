@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
-        /* フォント設定: 黒薔薇シンデレラ */
+        /* フォント設定: 赤薔薇シンデレラ */
         @font-face {
-            font-family: 'Kurobara';
-            src: url('font/MODI_kurobara-cinderella_2018_0805/kurobara-cinderella.ttf') format('truetype');
+            font-family: 'Akabara';
+            src: url('font/MODI_akabara-cinderella_2018_0811/akabara-cinderella.ttf') format('truetype');
         }
 
         :root {
@@ -25,6 +25,7 @@
             --accent-color: #CD498F;    /* ピンク */
             --main-text: #333333;
             --border-color: #EEEEEE;
+            --footer-bg: #fcfcfc;       /* フッター背景グレー */
         }
 
         * {
@@ -36,7 +37,7 @@
         body {
             background-color: var(--bg-color);
             color: var(--main-text);
-            font-family: 'Kurobara', "Helvetica Neue", Arial, sans-serif;
+            font-family: 'Akabara', "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
             text-align: center;
@@ -69,9 +70,11 @@
         .right-side {
             width: 50%;
             margin-left: 50%;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* プロフィールエリア */
+        /* プロフィールセクション */
         .profile-section {
             padding: 80px 20px 60px;
             background-color: var(--bg-color);
@@ -83,7 +86,7 @@
             color: var(--sub-color);
             letter-spacing: 0.05em;
             line-height: 1;
-            margin-bottom: 15px; /* 余白追加 */
+            margin-bottom: 15px;
         }
 
         .sayla-id {
@@ -99,7 +102,7 @@
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--sub-color); /* 青に戻しました */
+            border: 4px solid var(--sub-color);
             margin-bottom: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
@@ -137,9 +140,9 @@
             padding: 0 10%;
         }
 
-        /* --- LOGセクション (ここから大改造) --- */
+        /* LOGセクション (背景青) */
         .log-section {
-            background-color: var(--sub-color); /* 背景を青に塗りつぶし */
+            background-color: var(--sub-color);
             padding: 60px 20px 80px;
             color: #FFFFFF;
         }
@@ -162,11 +165,11 @@
 
         .work-item {
             width: 100%;
-            background: #fff; /* 動画ブロックは白 */
+            background: #fff;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            color: var(--main-text); /* 文字色は戻す */
+            color: var(--main-text);
         }
 
         .video-wrapper {
@@ -190,7 +193,7 @@
         }
 
         .work-info h3 {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-bottom: 12px;
         }
 
@@ -209,14 +212,14 @@
             font-weight: bold;
         }
 
-        /* フッター */
+        /* フッター: 青背景から独立させてグレーに */
         footer {
             padding: 40px 0;
-            background-color: var(--sub-color);
-            color: rgba(255, 255, 255, 0.7);
+            background-color: var(--footer-bg);
+            color: #999;
             font-size: 0.75rem;
             letter-spacing: 0.1em;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid var(--border-color);
         }
 
         /* --- スマホ調整 (1024px以下) --- */
@@ -247,14 +250,13 @@
         <!-- 右側：コンテンツ -->
         <div class="right-side">
             
-            <!-- プロフィール部分 -->
+            <!-- プロフィール -->
             <div class="profile-section">
                 <h1 class="huge-name">Sayla</h1>
                 <span class="sayla-id">@sayla_ch</span>
 
                 <img src="image/20251025_185455.jpg" alt="Sayla Icon" class="profile-icon">
 
-                <!-- SNSリンク (順番変更: X, nana, ツイキャス, YouTube, マシュマロ) -->
                 <div class="sns-container">
                     <a href="https://x.com/sayla_ch" target="_blank" class="sns-link" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
                     <a href="https://nana-music.com/users/10371954" target="_blank" class="sns-link" title="nana"><i class="fa-solid fa-microphone-lines"></i></a>
@@ -277,7 +279,6 @@
                 <h2 class="log-title">LOG</h2>
 
                 <div class="works-grid">
-                    
                     <div class="work-item">
                         <div class="video-wrapper">
                             <iframe src="https://www.youtube.com/embed/xlNm8FPTJRo" title="YouTube video player" allowfullscreen></iframe>
@@ -303,10 +304,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
+            <!-- フッター -->
             <footer>
                 &copy; Sayla. All Rights Reserved.
             </footer>
