@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sayla OFFICIAL SITE</title>
+    <title>sayla-ch</title>
     
     <!-- ファビコン設定 -->
     <link rel="icon" href="image/20251229_215250.jpg">
@@ -108,14 +108,22 @@
             padding: 60px 20px 20px;
         }
 
-        /* お名前ドーン！ */
+        /* 名前ブランド：sayla-ch */
         .huge-name {
-            font-size: 5rem; /* PCでの特大サイズ */
+            font-size: 4.5rem;
             font-weight: bold;
             color: var(--sub-color);
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
             margin-bottom: 10px;
             line-height: 1;
+        }
+
+        .sayla-id {
+            color: var(--sub-color);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            display: block;
+            font-weight: bold;
         }
 
         /* ABOUT内アイコン (メインビジュアルだった画像を使用) */
@@ -126,14 +134,6 @@
             object-fit: cover;
             border: 2px solid var(--sub-color);
             margin: 20px 0;
-        }
-
-        .sayla-id {
-            color: var(--sub-color);
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            display: block;
-            font-weight: bold;
         }
 
         .profile-text {
@@ -169,7 +169,7 @@
             transform: translateY(-3px);
         }
 
-        /* WORKS (CREATIVE) */
+        /* WORKS (LOG) */
         .works-grid {
             display: flex;
             flex-direction: column;
@@ -255,7 +255,7 @@
             }
 
             .huge-name {
-                font-size: 3.5rem; /* スマホでは少し抑えめに */
+                font-size: 3rem;
             }
 
             section {
@@ -267,17 +267,17 @@
 <body>
 
     <div class="container">
-        <!-- 左側：固定画像 (アイコンだったもの) -->
+        <!-- 左側：固定画像 -->
         <div class="left-side"></div>
 
         <!-- 右側：コンテンツ -->
         <div class="right-side">
             
             <div class="intro-name-area">
-                <h1 class="huge-name">Sayla</h1>
+                <!-- サイトロゴ・名前 -->
+                <h1 class="huge-name">sayla-ch</h1>
                 <span class="sayla-id">@sayla_ch</span>
 
-                <!-- SNSリンクを名前のすぐ下に配置してlit.link風に -->
                 <div class="sns-container">
                     <a href="https://x.com/sayla_ch" target="_blank" class="sns-link" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
                     <a href="https://twitcasting.tv/_say_la" target="_blank" class="sns-link" title="TwitCasting"><i class="fa-solid fa-tower-broadcast"></i></a>
@@ -289,7 +289,6 @@
 
             <section id="about">
                 <div class="about-content">
-                    <!-- 丸アイコン (メインビジュアルだったもの) -->
                     <img src="image/20251210_215907.jpg" alt="Sayla Icon" class="profile-icon">
                     
                     <div class="profile-text">
@@ -303,7 +302,7 @@
             </section>
 
             <section id="works">
-                <h2 class="section-title">CREATIVE</h2>
+                <h2 class="section-title">LOG</h2>
                 <div class="works-grid">
                     
                     <div class="work-item">
@@ -336,7 +335,7 @@
             </section>
 
             <footer>
-                &copy; Sayla. All Rights Reserved.
+                &copy; sayla-ch. All Rights Reserved.
             </footer>
         </div> <!-- /right-side -->
     </div> <!-- /container -->
