@@ -13,11 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
-        /* フォント設定: タイムマシンわ号 */
+        /* フォント設定: 黒薔薇シンデレラ */
         @font-face {
-            font-family: 'TimemachineWa';
-            /* GitHubのパスを正確に反映 */
-            src: url('font/MODI_timemachine-wa_2017_0930/timemachine-wa.ttf') format('truetype');
+            font-family: 'Kurobara';
+            src: url('font/MODI_kurobara-cinderella_2018_0805/kurobara-cinderella.ttf') format('truetype');
         }
 
         :root {
@@ -37,11 +36,17 @@
         body {
             background-color: var(--bg-color);
             color: var(--main-text);
-            /* タイムマシンわ号を優先適用 */
-            font-family: 'TimemachineWa', "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+            font-family: 'Kurobara', "Helvetica Neue", Arial, sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
             text-align: center;
+        }
+
+        /* リンクの下線を一括解除 */
+        a {
+            text-decoration: none !important;
+            color: inherit;
+            transition: 0.3s;
         }
 
         /* ヘッダー */
@@ -60,8 +65,8 @@
         }
 
         header h1 {
-            font-size: 1.4rem;
-            letter-spacing: 0.3em;
+            font-size: 1.6rem;
+            letter-spacing: 0.2em;
             color: var(--sub-color);
             font-weight: bold;
         }
@@ -80,7 +85,7 @@
 
         /* セクション共通 */
         section {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -131,11 +136,11 @@
         }
 
         .profile-text {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-bottom: 25px;
         }
 
-        /* SNSリンク（アイコンのみ） */
+        /* SNSリンク */
         .sns-container {
             display: flex;
             justify-content: center;
@@ -153,7 +158,6 @@
             justify-content: center;
             font-size: 1.2rem;
             border-radius: 50%;
-            transition: 0.3s;
         }
 
         .sns-link:hover {
@@ -164,15 +168,15 @@
 
         /* WORKS (YouTube) */
         .works-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            align-items: center;
+            display: grid;
+            /* PCでは2カラム */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 10px;
         }
 
         .work-item {
             width: 100%;
-            max-width: 500px;
             background: #fff;
             border-radius: 8px;
             overflow: hidden;
@@ -201,8 +205,13 @@
         }
 
         .work-info h3 {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-bottom: 10px;
+            /* タイトルの高さを揃える */
+            height: 2.4em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .tags {
@@ -230,18 +239,21 @@
         }
 
         /* スマホ調整 */
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.2rem; }
+        @media (max-width: 768px) {
+            .works-grid {
+                /* スマホでは1カラム */
+                grid-template-columns: 1fr;
+            }
             .keyvisual { height: 40vh; background-attachment: scroll; }
             section { padding: 30px 15px; }
-            .work-item { max-width: 100%; }
+            header h1 { font-size: 1.3rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>SAYLA</h1>
+        <h1>Sayla</h1>
     </header>
 
     <div class="keyvisual"></div>
@@ -275,6 +287,7 @@
         <h2 class="section-title">WORKS</h2>
         <div class="works-grid">
             
+            <!-- 実績1 -->
             <div class="work-item">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/xlNm8FPTJRo" title="YouTube video player" allowfullscreen></iframe>
@@ -289,6 +302,7 @@
                 </div>
             </div>
 
+            <!-- 実績2 -->
             <div class="work-item">
                 <div class="video-wrapper">
                     <iframe src="https://www.youtube.com/embed/CeFgU-8giUU" title="YouTube video player" allowfullscreen></iframe>
