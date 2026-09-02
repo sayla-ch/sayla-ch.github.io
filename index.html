@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sayla</title>
+    <title>Sayla OFFICIAL SITE</title>
     
     <!-- ファビコン設定 -->
     <link rel="icon" href="image/20251229_215250.jpg">
@@ -54,14 +54,14 @@
             width: 100%;
         }
 
-        /* 左半分：メイン画像固定エリア */
+        /* 左半分：メイン画像固定エリア (アイコン画像を大きく使用) */
         .left-side {
             width: 50%;
             height: 100vh;
-            position: fixed; /* 画面に固定 */
+            position: fixed;
             left: 0;
             top: 0;
-            background-image: url("image/20251210_215907.jpg");
+            background-image: url("image/20251025_185455.jpg");
             background-size: cover;
             background-position: center;
             border-right: 1px solid var(--border-color);
@@ -70,31 +70,8 @@
         /* 右半分：スクロールコンテンツエリア */
         .right-side {
             width: 50%;
-            margin-left: 50%; /* 左側が固定されているのでその分空ける */
-            padding-top: 60px; /* ヘッダーの高さ分 */
-        }
-
-        /* ヘッダー：右側エリア内で固定 */
-        header {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--sub-color);
-        }
-
-        header h1 {
-            font-size: 1.6rem;
-            letter-spacing: 0.2em;
-            color: var(--sub-color);
-            font-weight: bold;
+            margin-left: 50%;
+            padding-top: 40px;
         }
 
         /* セクション共通 */
@@ -126,33 +103,42 @@
             transform: translateX(-50%);
         }
 
-        /* ABOUT */
+        /* プロフィールエリア冒頭 */
+        .intro-name-area {
+            padding: 60px 20px 20px;
+        }
+
+        /* お名前ドーン！ */
+        .huge-name {
+            font-size: 5rem; /* PCでの特大サイズ */
+            font-weight: bold;
+            color: var(--sub-color);
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        /* ABOUT内アイコン (メインビジュアルだった画像を使用) */
         .profile-icon {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--sub-color);
-            margin-bottom: 15px;
-        }
-
-        .sayla-name {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 0;
+            margin: 20px 0;
         }
 
         .sayla-id {
             color: var(--sub-color);
-            font-size: 0.9rem;
-            margin-bottom: 20px;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
             display: block;
             font-weight: bold;
         }
 
         .profile-text {
             font-size: 0.95rem;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             text-align: center;
         }
 
@@ -161,6 +147,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
+            margin-bottom: 20px;
         }
 
         .sns-link {
@@ -182,7 +169,7 @@
             transform: translateY(-3px);
         }
 
-        /* WORKS (YouTube) - 右側では1枚ずつ並べる */
+        /* WORKS (CREATIVE) */
         .works-grid {
             display: flex;
             flex-direction: column;
@@ -201,7 +188,7 @@
 
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             background: #000;
         }
@@ -220,7 +207,7 @@
         }
 
         .work-info h3 {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-bottom: 10px;
         }
 
@@ -241,7 +228,7 @@
 
         /* フッター */
         footer {
-            padding: 40px 0;
+            padding: 60px 0;
             background-color: #fcfcfc;
             color: #999;
             font-size: 0.7rem;
@@ -251,12 +238,12 @@
         /* --- スマホ調整 (1024px以下) --- */
         @media (max-width: 1024px) {
             .container {
-                display: block; /* 横並び解除 */
+                display: block;
             }
 
             .left-side {
                 width: 100%;
-                height: 50vh; /* 上側に画像を配置 */
+                height: 50vh;
                 position: relative;
                 border-right: none;
             }
@@ -267,17 +254,12 @@
                 padding-top: 0;
             }
 
-            header {
-                width: 100%;
-                position: fixed;
-            }
-
-            header h1 {
-                font-size: 1.3rem;
+            .huge-name {
+                font-size: 3.5rem; /* スマホでは少し抑えめに */
             }
 
             section {
-                padding: 30px 15px;
+                padding: 20px 15px;
             }
         }
     </style>
@@ -285,21 +267,30 @@
 <body>
 
     <div class="container">
-        <!-- 左側：固定画像 -->
+        <!-- 左側：固定画像 (アイコンだったもの) -->
         <div class="left-side"></div>
 
         <!-- 右側：コンテンツ -->
         <div class="right-side">
-            <header>
-                <h1>Sayla</h1>
-            </header>
+            
+            <div class="intro-name-area">
+                <h1 class="huge-name">Sayla</h1>
+                <span class="sayla-id">@sayla_ch</span>
+
+                <!-- SNSリンクを名前のすぐ下に配置してlit.link風に -->
+                <div class="sns-container">
+                    <a href="https://x.com/sayla_ch" target="_blank" class="sns-link" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://twitcasting.tv/_say_la" target="_blank" class="sns-link" title="TwitCasting"><i class="fa-solid fa-tower-broadcast"></i></a>
+                    <a href="http://www.youtube.com/@sayla_ch" target="_blank" class="sns-link" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://nana-music.com/users/10371954" target="_blank" class="sns-link" title="nana"><i class="fa-solid fa-microphone-lines"></i></a>
+                    <a href="https://marshmallow-qa.com/_say_la" target="_blank" class="sns-link" title="Marshmallow"><i class="fa-solid fa-envelope-open-text"></i></a>
+                </div>
+            </div>
 
             <section id="about">
-                <h2 class="section-title">ABOUT</h2>
                 <div class="about-content">
-                    <img src="image/20251025_185455.jpg" alt="Sayla Icon" class="profile-icon">
-                    <div class="sayla-name">Sayla</div>
-                    <span class="sayla-id">@sayla_ch</span>
+                    <!-- 丸アイコン (メインビジュアルだったもの) -->
+                    <img src="image/20251210_215907.jpg" alt="Sayla Icon" class="profile-icon">
                     
                     <div class="profile-text">
                         <p>INFP-T ／ 成人済 ／ 低音女子・両声類かも？</p>
@@ -309,18 +300,10 @@
                         <p style="margin-top: 0.8em; font-weight: bold; color: var(--accent-color);">推しは推せる時に推そうな？</p>
                     </div>
                 </div>
-
-                <div class="sns-container">
-                    <a href="https://x.com/sayla_ch" target="_blank" class="sns-link" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="https://twitcasting.tv/_say_la" target="_blank" class="sns-link" title="TwitCasting"><i class="fa-solid fa-tower-broadcast"></i></a>
-                    <a href="http://www.youtube.com/@sayla_ch" target="_blank" class="sns-link" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-                    <a href="https://nana-music.com/users/10371954" target="_blank" class="sns-link" title="nana"><i class="fa-solid fa-microphone-lines"></i></a>
-                    <a href="https://marshmallow-qa.com/_say_la" target="_blank" class="sns-link" title="Marshmallow"><i class="fa-solid fa-envelope-open-text"></i></a>
-                </div>
             </section>
 
             <section id="works">
-                <h2 class="section-title">WORKS</h2>
+                <h2 class="section-title">CREATIVE</h2>
                 <div class="works-grid">
                     
                     <div class="work-item">
