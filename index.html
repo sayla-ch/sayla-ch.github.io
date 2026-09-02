@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sayla OFFICIAL SITE</title>
+    <title>Sayla</title>
     
     <!-- ファビコン設定 -->
     <link rel="icon" href="image/20251229_215250.jpg">
@@ -42,18 +42,44 @@
             text-align: center;
         }
 
-        /* リンクの下線を一括解除 */
         a {
             text-decoration: none !important;
             color: inherit;
             transition: 0.3s;
         }
 
-        /* ヘッダー */
+        /* --- レイアウト全体設定 (PC) --- */
+        .container {
+            display: flex;
+            width: 100%;
+        }
+
+        /* 左半分：メイン画像固定エリア */
+        .left-side {
+            width: 50%;
+            height: 100vh;
+            position: fixed; /* 画面に固定 */
+            left: 0;
+            top: 0;
+            background-image: url("image/20251210_215907.jpg");
+            background-size: cover;
+            background-position: center;
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* 右半分：スクロールコンテンツエリア */
+        .right-side {
+            width: 50%;
+            margin-left: 50%; /* 左側が固定されているのでその分空ける */
+            padding-top: 60px; /* ヘッダーの高さ分 */
+        }
+
+        /* ヘッダー：右側エリア内で固定 */
         header {
             position: fixed;
             top: 0;
-            width: 100%;
+            right: 0;
+            width: 50%;
             height: 60px;
             display: flex;
             justify-content: center;
@@ -71,21 +97,10 @@
             font-weight: bold;
         }
 
-        /* メインビジュアル */
-        .keyvisual {
-            position: relative;
-            width: 100%;
-            height: 60vh;
-            background-image: url("image/20251210_215907.jpg");
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            margin-bottom: 20px;
-        }
-
         /* セクション共通 */
         section {
-            max-width: 900px;
+            width: 100%;
+            max-width: 600px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -138,6 +153,7 @@
         .profile-text {
             font-size: 0.95rem;
             margin-bottom: 25px;
+            text-align: center;
         }
 
         /* SNSリンク */
@@ -166,13 +182,12 @@
             transform: translateY(-3px);
         }
 
-        /* WORKS (YouTube) */
+        /* WORKS (YouTube) - 右側では1枚ずつ並べる */
         .works-grid {
-            display: grid;
-            /* PCでは2カラム */
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
         }
 
         .work-item {
@@ -207,11 +222,6 @@
         .work-info h3 {
             font-size: 0.9rem;
             margin-bottom: 10px;
-            /* タイトルの高さを揃える */
-            height: 2.4em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .tags {
@@ -238,89 +248,115 @@
             letter-spacing: 0.1em;
         }
 
-        /* スマホ調整 */
-        @media (max-width: 768px) {
-            .works-grid {
-                /* スマホでは1カラム */
-                grid-template-columns: 1fr;
+        /* --- スマホ調整 (1024px以下) --- */
+        @media (max-width: 1024px) {
+            .container {
+                display: block; /* 横並び解除 */
             }
-            .keyvisual { height: 40vh; background-attachment: scroll; }
-            section { padding: 30px 15px; }
-            header h1 { font-size: 1.3rem; }
+
+            .left-side {
+                width: 100%;
+                height: 50vh; /* 上側に画像を配置 */
+                position: relative;
+                border-right: none;
+            }
+
+            .right-side {
+                width: 100%;
+                margin-left: 0;
+                padding-top: 0;
+            }
+
+            header {
+                width: 100%;
+                position: fixed;
+            }
+
+            header h1 {
+                font-size: 1.3rem;
+            }
+
+            section {
+                padding: 30px 15px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Sayla</h1>
-    </header>
+    <div class="container">
+        <!-- 左側：固定画像 -->
+        <div class="left-side"></div>
 
-    <div class="keyvisual"></div>
+        <!-- 右側：コンテンツ -->
+        <div class="right-side">
+            <header>
+                <h1>Sayla</h1>
+            </header>
 
-    <section id="about">
-        <h2 class="section-title">ABOUT</h2>
-        <div class="about-content">
-            <img src="image/20251025_185455.jpg" alt="Sayla Icon" class="profile-icon">
-            <div class="sayla-name">Sayla</div>
-            <span class="sayla-id">@sayla_ch</span>
-            
-            <div class="profile-text">
-                <p>INFP-T ／ 成人済 ／ 低音女子・両声類かも？</p>
-                <p>一人称迷子で言動荒めな奴と覚えてください</p>
-                <p>歌とゲームが好き</p>
-                <p>夢はでっかく配信者屋さんになること</p>
-                <p style="margin-top: 0.8em; font-weight: bold; color: var(--accent-color);">推しは推せる時に推そうな？</p>
-            </div>
-        </div>
-
-        <div class="sns-container">
-            <a href="https://x.com/sayla_ch" target="_blank" class="sns-link" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="https://twitcasting.tv/_say_la" target="_blank" class="sns-link" title="TwitCasting"><i class="fa-solid fa-tower-broadcast"></i></a>
-            <a href="http://www.youtube.com/@sayla_ch" target="_blank" class="sns-link" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://nana-music.com/users/10371954" target="_blank" class="sns-link" title="nana"><i class="fa-solid fa-microphone-lines"></i></a>
-            <a href="https://marshmallow-qa.com/_say_la" target="_blank" class="sns-link" title="Marshmallow"><i class="fa-solid fa-envelope-open-text"></i></a>
-        </div>
-    </section>
-
-    <section id="works">
-        <h2 class="section-title">WORKS</h2>
-        <div class="works-grid">
-            
-            <!-- 実績1 -->
-            <div class="work-item">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/xlNm8FPTJRo" title="YouTube video player" allowfullscreen></iframe>
-                </div>
-                <div class="work-info">
-                    <h3>アイデンティティ / 恋町レノ × Sayla</h3>
-                    <div class="tags">
-                        <span class="tag">Vocal</span>
-                        <span class="tag">MIX</span>
-                        <span class="tag">Movie</span>
+            <section id="about">
+                <h2 class="section-title">ABOUT</h2>
+                <div class="about-content">
+                    <img src="image/20251025_185455.jpg" alt="Sayla Icon" class="profile-icon">
+                    <div class="sayla-name">Sayla</div>
+                    <span class="sayla-id">@sayla_ch</span>
+                    
+                    <div class="profile-text">
+                        <p>INFP-T ／ 成人済 ／ 低音女子・両声類かも？</p>
+                        <p>一人称迷子で言動荒めな奴と覚えてください</p>
+                        <p>歌とゲームが好き</p>
+                        <p>夢はでっかく配信者屋さんになること</p>
+                        <p style="margin-top: 0.8em; font-weight: bold; color: var(--accent-color);">推しは推せる時に推そうな？</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- 実績2 -->
-            <div class="work-item">
-                <div class="video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/CeFgU-8giUU" title="YouTube video player" allowfullscreen></iframe>
+                <div class="sns-container">
+                    <a href="https://x.com/sayla_ch" target="_blank" class="sns-link" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://twitcasting.tv/_say_la" target="_blank" class="sns-link" title="TwitCasting"><i class="fa-solid fa-tower-broadcast"></i></a>
+                    <a href="http://www.youtube.com/@sayla_ch" target="_blank" class="sns-link" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://nana-music.com/users/10371954" target="_blank" class="sns-link" title="nana"><i class="fa-solid fa-microphone-lines"></i></a>
+                    <a href="https://marshmallow-qa.com/_say_la" target="_blank" class="sns-link" title="Marshmallow"><i class="fa-solid fa-envelope-open-text"></i></a>
                 </div>
-                <div class="work-info">
-                    <h3>プロポーズ💍歌ってみた【恋町レノ】</h3>
-                    <div class="tags">
-                        <span class="tag">MIX</span>
+            </section>
+
+            <section id="works">
+                <h2 class="section-title">WORKS</h2>
+                <div class="works-grid">
+                    
+                    <div class="work-item">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/xlNm8FPTJRo" title="YouTube video player" allowfullscreen></iframe>
+                        </div>
+                        <div class="work-info">
+                            <h3>アイデンティティ / 恋町レノ × Sayla</h3>
+                            <div class="tags">
+                                <span class="tag">Vocal</span>
+                                <span class="tag">MIX</span>
+                                <span class="tag">Movie</span>
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="work-item">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/CeFgU-8giUU" title="YouTube video player" allowfullscreen></iframe>
+                        </div>
+                        <div class="work-info">
+                            <h3>プロポーズ💍歌ってみた【恋町レノ】</h3>
+                            <div class="tags">
+                                <span class="tag">MIX</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
+            </section>
 
-        </div>
-    </section>
-
-    <footer>
-        &copy; Sayla. All Rights Reserved.
-    </footer>
+            <footer>
+                &copy; Sayla. All Rights Reserved.
+            </footer>
+        </div> <!-- /right-side -->
+    </div> <!-- /container -->
 
 </body>
 </html>
