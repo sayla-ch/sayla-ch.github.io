@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sayla-ch</title>
+    <title>清良（せいら）公式サイト</title>
     
     <!-- ファビコン設定 -->
     <link rel="icon" href="image/20251229_215250.jpg">
@@ -21,8 +21,8 @@
 
         :root {
             --bg-color: #FFFFFF;
-            --sub-color: #40A2C7;
-            --accent-color: #CD498F;
+            --sub-color: #40A2C7;       /* 青 */
+            --accent-color: #CD498F;    /* ピンク */
             --main-text: #333333;
             --border-color: #EEEEEE;
         }
@@ -48,98 +48,60 @@
             transition: 0.3s;
         }
 
-        /* --- レイアウト全体設定 (PC) --- */
+        /* --- レイアウト設定 (PC) --- */
         .container {
             display: flex;
             width: 100%;
         }
 
-        /* 左半分：メイン画像固定エリア (アイコン画像を大きく使用) */
         .left-side {
             width: 50%;
             height: 100vh;
             position: fixed;
             left: 0;
             top: 0;
-            background-image: url("image/20251025_185455.jpg");
+            background-image: url("image/20251210_215907.jpg"); /* 青系のメイン画像 */
             background-size: cover;
             background-position: center;
             border-right: 1px solid var(--border-color);
         }
 
-        /* 右半分：スクロールコンテンツエリア */
         .right-side {
             width: 50%;
             margin-left: 50%;
             padding-top: 40px;
         }
 
-        /* セクション共通 */
-        section {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        h2.section-title {
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            letter-spacing: 0.2em;
-            display: inline-block;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        h2.section-title::after {
-            content: "";
-            display: block;
-            width: 30px;
-            height: 2px;
-            background: var(--sub-color);
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* プロフィールエリア冒頭 */
+        /* お名前エリア */
         .intro-name-area {
-            padding: 60px 20px 20px;
+            padding: 40px 20px 0;
         }
 
-        /* 名前ブランド：sayla-ch */
         .huge-name {
             font-size: 4.5rem;
             font-weight: bold;
             color: var(--sub-color);
             letter-spacing: 0.05em;
-            margin-bottom: 10px;
             line-height: 1;
         }
 
         .sayla-id {
             color: var(--sub-color);
             font-size: 1.1rem;
-            margin-bottom: 25px;
             display: block;
             font-weight: bold;
+            margin-bottom: 20px;
         }
 
-        /* ABOUT内アイコン (メインビジュアルだった画像を使用) */
+        /* ABOUT アイコン */
         .profile-icon {
-            width: 120px;
-            height: 120px;
+            width: 150px; /* サイズアップ */
+            height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--sub-color);
-            margin: 20px 0;
-        }
-
-        .profile-text {
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-            text-align: center;
+            border: 4px solid var(--accent-color); /* ピンクの枠線 */
+            margin: 10px 0 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         /* SNSリンク */
@@ -147,7 +109,7 @@
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 50px; /* 下のテキストとの間隔を空ける */
         }
 
         .sns-link {
@@ -169,21 +131,48 @@
             transform: translateY(-3px);
         }
 
+        /* コメント欄テキスト */
+        .profile-text {
+            font-size: 0.95rem;
+            margin-bottom: 60px;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        /* LOG見出し（青い四角のデザイン） */
+        .section-title-box {
+            display: inline-block;
+            background-color: var(--sub-color);
+            color: #FFFFFF;
+            padding: 8px 40px;
+            font-size: 1.4rem;
+            letter-spacing: 0.3em;
+            margin-bottom: 40px;
+            border-radius: 4px; /* 少し角丸 */
+        }
+
         /* WORKS (LOG) */
+        section#works {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 20px 60px;
+        }
+
         .works-grid {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 35px;
             align-items: center;
         }
 
         .work-item {
             width: 100%;
             background: #fff;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
 
         .video-wrapper {
@@ -207,7 +196,7 @@
         }
 
         .work-info h3 {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             margin-bottom: 10px;
         }
 
@@ -221,63 +210,57 @@
             font-size: 0.7rem;
             background-color: var(--accent-color);
             color: #fff;
-            padding: 1px 10px;
+            padding: 1px 12px;
             border-radius: 10px;
             font-weight: bold;
         }
 
         /* フッター */
         footer {
-            padding: 60px 0;
+            padding: 40px 0;
             background-color: #fcfcfc;
             color: #999;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             letter-spacing: 0.1em;
+            border-top: 1px solid var(--border-color);
         }
 
         /* --- スマホ調整 (1024px以下) --- */
         @media (max-width: 1024px) {
-            .container {
-                display: block;
-            }
-
+            .container { display: block; }
             .left-side {
                 width: 100%;
                 height: 50vh;
                 position: relative;
                 border-right: none;
             }
-
             .right-side {
                 width: 100%;
                 margin-left: 0;
                 padding-top: 0;
             }
-
-            .huge-name {
-                font-size: 3rem;
-            }
-
-            section {
-                padding: 20px 15px;
-            }
+            .huge-name { font-size: 3.5rem; }
+            .profile-text { padding: 0 5%; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- 左側：固定画像 -->
+        <!-- 左側：固定背景画像 -->
         <div class="left-side"></div>
 
         <!-- 右側：コンテンツ -->
         <div class="right-side">
             
             <div class="intro-name-area">
-                <!-- サイトロゴ・名前 -->
-                <h1 class="huge-name">sayla-ch</h1>
+                <h1 class="huge-name">Sayla</h1>
                 <span class="sayla-id">@sayla_ch</span>
 
+                <!-- 正方形のアイコン画像（枠線ピンク） -->
+                <img src="image/20251025_185455.jpg" alt="Sayla Icon" class="profile-icon">
+
+                <!-- SNSリンク -->
                 <div class="sns-container">
                     <a href="https://x.com/sayla_ch" target="_blank" class="sns-link" title="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
                     <a href="https://twitcasting.tv/_say_la" target="_blank" class="sns-link" title="TwitCasting"><i class="fa-solid fa-tower-broadcast"></i></a>
@@ -285,24 +268,21 @@
                     <a href="https://nana-music.com/users/10371954" target="_blank" class="sns-link" title="nana"><i class="fa-solid fa-microphone-lines"></i></a>
                     <a href="https://marshmallow-qa.com/_say_la" target="_blank" class="sns-link" title="Marshmallow"><i class="fa-solid fa-envelope-open-text"></i></a>
                 </div>
+
+                <!-- コメント欄 -->
+                <div class="profile-text">
+                    <p>INFP-T ／ 成人済 ／ 低音女子・両声類かも？</p>
+                    <p>一人称迷子で言動荒めな奴と覚えてください</p>
+                    <p>歌とゲームが好き</p>
+                    <p>夢はでっかく配信者屋さんになること</p>
+                    <p style="margin-top: 0.8em; font-weight: bold; color: var(--accent-color);">推しは推せる時に推そうな？</p>
+                </div>
             </div>
 
-            <section id="about">
-                <div class="about-content">
-                    <img src="image/20251210_215907.jpg" alt="Sayla Icon" class="profile-icon">
-                    
-                    <div class="profile-text">
-                        <p>INFP-T ／ 成人済 ／ 低音女子・両声類かも？</p>
-                        <p>一人称迷子で言動荒めな奴と覚えてください</p>
-                        <p>歌とゲームが好き</p>
-                        <p>夢はでっかく配信者屋さんになること</p>
-                        <p style="margin-top: 0.8em; font-weight: bold; color: var(--accent-color);">推しは推せる時に推そうな？</p>
-                    </div>
-                </div>
-            </section>
-
             <section id="works">
-                <h2 class="section-title">LOG</h2>
+                <!-- LOG見出し（青ボックスデザイン） -->
+                <div class="section-title-box">LOG</div>
+
                 <div class="works-grid">
                     
                     <div class="work-item">
@@ -335,7 +315,7 @@
             </section>
 
             <footer>
-                &copy; sayla-ch. All Rights Reserved.
+                &copy; Sayla. All Rights Reserved.
             </footer>
         </div> <!-- /right-side -->
     </div> <!-- /container -->
